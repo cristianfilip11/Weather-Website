@@ -13,6 +13,9 @@ body {
   height: 100vh;
   background-color: #33331a;
   position: relative;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 .search-container {
@@ -161,7 +164,7 @@ body {
 }
 
 .weather-panel {
-  background-image: url("https://unsplash.it/600/400?image=1043&blur");
+  /*background-image: url("https://unsplash.it/600/400?image=1043&blur");*/
   background-size: cover;
   border-radius: 20px;
   box-shadow: 25px 25px 40px 0px rgba(0, 0, 0, 0.33);
@@ -170,12 +173,20 @@ body {
   height: 400px;
 }
 
+.location,
+.temperature {
+  text-shadow: -1px -1px 0 #000, /* Top-left shadow */ 1px -1px 0 #000,
+    /* Top-right shadow */ -1px 1px 0 #000,
+    /* Bottom-left shadow */ 1px 1px 0 #000; /* Bottom-right shadow */
+}
 .condition,
 .wind,
 .humidity {
-  mix-blend-mode: difference;
   margin: 5px;
   position: relative;
+  text-shadow: -1px -1px 0 #000, /* Top-left shadow */ 1px -1px 0 #000,
+    /* Top-right shadow */ -1px 1px 0 #000,
+    /* Bottom-left shadow */ 1px 1px 0 #000; /* Bottom-right shadow */
 }
 .update {
   margin: 10px;
