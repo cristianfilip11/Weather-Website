@@ -4,11 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     .getElementById("fetch-weather")
     .addEventListener("click", function () {
       // Get the   value from the input
+      var favouriteButton = document.getElementById("favorite-button");
       var cityName = document.getElementById("city-input").value;
       var weatherDisplay = document.getElementById("root");
       var searchContainer = document.querySelector(".search-container");
       var weatherContainer = document.querySelector(".main-container");
-      // Set up your API key and URL
+           // Set up your API key and URL
       var apiKey = "bb8b4e7ce43a4879973194206241301"; // Replace with your actual API key
      /* var url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(
         cityName
@@ -98,6 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
           searchContainer.classList.add("move-to-top");
           weatherDisplay.classList.add("fade-in");
           weatherContainer.classList.add("fade-in");
+          favouriteButton.style.opacity = "1";
+          favouriteButton.classList.add("fade-in");
         })
         .catch((error) => {
           console.error("Error fetching weather:", error);

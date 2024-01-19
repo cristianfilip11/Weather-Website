@@ -23,7 +23,7 @@ function debounce(func, delay) {
         displayCities(data.list);
     } else {
         hideCityList();
-    }
+    }   
 }*/
 
 /*async function searchCities() {
