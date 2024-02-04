@@ -3,14 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("fetch-weather")
     .addEventListener("click", function () {
-      // Get the   value from the input
+    
       var favouriteButton = document.getElementById("favorite-button");
       var cityName = document.getElementById("city-input").value;
       var weatherDisplay = document.getElementById("root");
       var searchContainer = document.querySelector(".search-container");
       var weatherContainer = document.querySelector(".main-container");
-           // Set up your API key and URL
-      var apiKey = "bb8b4e7ce43a4879973194206241301"; // Replace with your actual API key
+         
+      var apiKey = "bb8b4e7ce43a4879973194206241301"; 
      /* var url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${encodeURIComponent(
         cityName
       )}&aqi=no`;*/
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
       )}&days=5&aqi=no&alerts=no`;
       
 
-      // Show a loading indicator here, if you have one
+ 
 
       fetch(url)
         .then((response) => {
@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return response.json();
         })
         .then((data) => {
-          // Hide the loading indicator here
-
-          // Extract the data you want to display
+  
           var temp = data.current.temp_c;
           var condition = data.current.condition.text;
           var wind = data.current.wind_kph;
@@ -45,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
             data.forecast.forecastday &&
             data.forecast.forecastday.length > 1
           ) {
-            // Start loop from index 1 to skip the first element (today's forecast)
+         
             for (let i = 1; i < data.forecast.forecastday.length; i++) {
               let forecastDay = data.forecast.forecastday[i];
               let date = forecastDay.date;
               let maxTemp = forecastDay.day.maxtemp_c;
               let minTemp = forecastDay.day.mintemp_c;
               let cond = forecastDay.day.condition.text;
-              // Log the max and min temperature for each upcoming day
+          
 
               document.querySelector(`.day${i}`).innerHTML = `
                 <center  style="margin: 2px;">${date}</center>
@@ -66,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
               console.log(
                 `Forecast for ${date}: Max Temp: ${maxTemp}°C, Min Temp: ${minTemp}°C`
               );
-              // Here you could also update the DOM or create elements to display the forecast
+             
             }
           } else {
-            // Handle case where forecast data may not be available
+    
             console.log("Forecast data is not available");
           }
 
@@ -105,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch((error) => {
           console.error("Error fetching weather:", error);
 
-          // Hide the loading indicator here and display error message, if you have a setup for it
+      
         });
     });
 });

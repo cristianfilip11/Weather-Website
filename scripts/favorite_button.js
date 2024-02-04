@@ -1,4 +1,4 @@
-// This event listener ensures that the code will only run after the DOM is fully loaded
+
 document.addEventListener("DOMContentLoaded", function () {
     
     const cityInput = document.getElementById('city-input');
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.setItem('favorites', JSON.stringify(favorites));
                
             }
-            favoriteButton.style.color = 'red'; // Visual feedback
+            favoriteButton.style.color = 'red'; 
         }
         
   
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cityInput.addEventListener('input', function () {
         const inputValue = cityInput.value.trim();
         if (inputValue < 3) {
-          // Trigger display of favorites if input is empty
+  
           let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
           displayCities({ features: favorites.map(city => ({ properties: { formatted: city } })) });
           console.log(favorites);
